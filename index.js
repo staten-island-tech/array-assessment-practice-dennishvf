@@ -84,19 +84,33 @@ const titles = [
   "Little Women",
 ];
 
-//Array of authors and the book they wrote
+//Array of authors and the book they wrote 1
 //"--- wrote --- in ---"
-
-//Sort books from oldest to most recent
-
-//sort books alphabetically
-
-//Find who wrote War and Peace
-
-//how many books were written before 1900?
-
-//was there at least one book published within the last 100 years?
-
-//was every book published within the last 100 years?
-
-//print a list of books that "includes" the genre historical
+const authorbooklist = books.map(book => `${book.authorFirst} ${book.authorLast} wrote ${book.name}`);
+console.log("Authors and their books:");
+console.log(authorbooklist);
+//Sort books from oldest to most recent 2
+const sortedbyyear= books.sort((a,b) => a.publishDate - b.publishDate);
+console.log("books oldest to most recent: ");
+console.log(sortedbyyear);
+//sort books alphabetically 3
+const sortedalphabetically = books.sort((a, b) => a.name.localeCompare(b.name));
+console.log("Soted alpgabetically:")
+console.log(sortedalphabetically)
+//Find who wrote War and Peace 4
+const findauthor = books.find(book => book.name === "War and Peace");
+console.log(`The author of war and peace: ${findauthor.authorFirst} ${findauthor.authorLast}`);
+//how many books were written before 1900? 5
+const booksbefore = books.filter(book => books.publishDate < 1900).length;
+console.log(`number of books written before 1900: ${booksbefore}`);
+//was there at least one book published within the last 100 years? 6
+const currentyear = new Date().getFullYear();
+const bookpublishediwithin = books.some(book => currentyear - book.publishDate <= 100);
+console.log(`Were there books published within 100 years: ${bookpublishediwithin}`);
+//was every book published within the last 100 years? 7
+const waseverybook = books.every(book => currentyear - book.publishDate <= 100);
+console.log(`Every book was published within the last 100 years: ${waseverybook}`);
+//print a list of books that "includes" the genre historical 8
+const historicalbooks = books.filter(book => book.genre.includes("historical")).map(book => book.name);
+console.log("History books:");
+console.log(historicalbooks)
