@@ -95,7 +95,7 @@ console.log("books oldest to most recent: ");
 console.log(sortedbyyear);
 //sort books alphabetically 3
 const sortedalphabetically = books.sort((a, b) => a.name.localeCompare(b.name));
-console.log("Soted alpgabetically:")
+console.log("Sorted alpgabetically:")
 console.log(sortedalphabetically)
 //Find who wrote War and Peace 4
 const findauthor = books.find(book => book.name === "War and Peace");
